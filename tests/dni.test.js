@@ -1,5 +1,5 @@
 import { test, expect, describe } from "vitest";
-import { checkDniLength } from "./dni";
+import { checkDniLength, validDniComposition } from "./dni";
 
 describe("checkDniLength(dni)", () => {
     test("checkDniLength() to be defined", () => {
@@ -107,7 +107,7 @@ describe("validDniComposition(dni)", () => {
 
         expect(compositionValidationResult).toBe(expectedResult);
     }),
-    test("validDniComposition(12345678T) should return error, one of the first 8 chars is not a number", () => {
+    test("validDniComposition(12345678T) should return true", () => {
         const dni = "12345678T";
         const expectedResult = true;
 
