@@ -5,6 +5,7 @@ import {
   validDniLetter,
   checkIndicatedLetter,
   isNie,
+  replaceToNie,
   isValidDni,
 } from "./dni";
 
@@ -273,5 +274,35 @@ describe("isNie(dni)", () => {
         let nieValidationResult = isNie(dni);
 
         expect(nieValidationResult).toBe(expectedResult);
+    })
+})
+
+describe("replaceToNie()", () => {
+    test("replaceToNie() to be defined", () => {
+        expect(replaceToNie).toBeDefined();
+    }),
+    test("replaceToNie(Z2345678Z)", () => {
+        const dni = "Z2345678Z";
+        const expectedResult = "22345678Z"
+
+        let replaceResult = replaceToNie(dni);
+
+        expect(replaceResult).toBe(expectedResult);
+    }),
+    test("replaceToNie(Y2345678Z)", () => {
+        const dni = "Y2345678Z";
+        const expectedResult = "12345678Z"
+
+        let replaceResult = replaceToNie(dni);
+
+        expect(replaceResult).toBe(expectedResult);
+    }),
+    test("replaceToNie(X2345678Z)", () => {
+        const dni = "X2345678Z";
+        const expectedResult = "02345678Z"
+
+        let replaceResult = replaceToNie(dni);
+
+        expect(replaceResult).toBe(expectedResult);
     })
 })

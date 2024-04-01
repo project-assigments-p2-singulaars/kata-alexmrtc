@@ -150,11 +150,34 @@ function isNie(dni) {
   return result;
 }
 
+function replaceToNie(nie) {
+    let firstNieCharacter = nie.charAt(0);
+    let replacementCharacter = "";
+
+    if (firstNieCharacter === "X") {
+        replacementCharacter = "0";
+    } else if(firstNieCharacter === "Y") {
+        replacementCharacter = "1";
+    }else {
+        replacementCharacter = "2";
+    }
+
+    let newDni = replacementCharacter + nie.substring(1, nie.length);
+
+    return newDni;
+}
+
 function isValidDni(dni) {
   let lengthValidation = checkDniLength(dni);
 
   if (lengthValidation !== "Valid dni length") {
     return false;
+  }
+
+  let isNieDocument = isNie(dni);
+
+  if (isNieDocument) {
+    dni = replaceToNie(dni);
   }
 
   let isValidComposition = validDniComposition(dni);
@@ -184,5 +207,6 @@ module.exports = {
   validDniLetter,
   checkIndicatedLetter,
   isNie,
+  replaceToNie,
   isValidDni,
 };
