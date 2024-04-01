@@ -1,5 +1,5 @@
 import { test, expect, describe } from "vitest";
-import { checkDniLength, validDniComposition, validDniLetter } from "./dni";
+import { checkDniLength, validDniComposition, validDniLetter, checkIndicatedLetter } from "./dni";
 
 describe("checkDniLength(dni)", () => {
     test("checkDniLength() to be defined", () => {
@@ -167,35 +167,35 @@ describe("checkIndicatedLetter(dni)", () => {
     test("checkIndicatedLetter() to be defined", () => {
         expect(checkIndicatedLetter).toBeDefined();
     }),
-    test("checkInicatedLetter(12345678T)", () => {
+    test("checkIndicatedLetter(12345678T)", () => {
         const dni = "12345678T";
         const expectedResult = false;
 
-        let letterCheckResult = checkInicatedLetter(dni);
+        let letterCheckResult = checkIndicatedLetter(dni);
 
         expect(letterCheckResult).toBe(expectedResult);
     }),
-    test("checkInicatedLetter(12345678Z)", () => {
+    test("checkIndicatedLetter(12345678Z)", () => {
         const dni = "12345678Z";
         const expectedResult = true;
 
-        let letterCheckResult = checkInicatedLetter(dni);
+        let letterCheckResult = checkIndicatedLetter(dni);
 
         expect(letterCheckResult).toBe(expectedResult);
     }),
-    test("checkInicatedLetter(87654321S)", () => {
+    test("checkIndicatedLetter(87654321S)", () => {
         const dni = "87654321S";
         const expectedResult = false;
 
-        let letterCheckResult = checkInicatedLetter(dni);
+        let letterCheckResult = checkIndicatedLetter(dni);
 
         expect(letterCheckResult).toBe(expectedResult);
     }),
-    test("checkInicatedLetter(87654321X)", () => {
+    test("checkIndicatedLetter(87654321X)", () => {
         const dni = "87654321X";
         const expectedResult = true;
 
-        let letterCheckResult = checkInicatedLetter(dni);
+        let letterCheckResult = checkIndicatedLetter(dni);
 
         expect(letterCheckResult).toBe(expectedResult);
     })
