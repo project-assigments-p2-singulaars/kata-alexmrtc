@@ -230,3 +230,41 @@ describe("isValidDni(dni)", () => {
     })
 })
 
+describe("isNie(dni)", () => {
+    test("isNie() to be defined", () => {
+        expect(isNie).toBeDefined();
+    }),
+    test("isNie(12345678Z) should return false", () => {
+        const dni = "12345678Z";
+        const expectedResult = false;
+
+        let nieValidationResult = isNie(dni);
+
+        expect(nieValidationResult).toBe(expectedResult);
+    }),
+    test("isNie(X2345678Z) should return true", () => {
+        const dni = "X2345678Z";
+        const expectedResult = true;
+
+        let nieValidationResult = isNie(dni);
+
+        expect(nieValidationResult).toBe(expectedResult);
+    }),
+    test("isNie(Y2345678Z) should return true", () => {
+        const dni = "Y2345678Z";
+        const expectedResult = true;
+
+        let nieValidationResult = isNie(dni);
+
+        expect(nieValidationResult).toBe(expectedResult);
+    }),
+    test("isNie(Z2345678Z) should return true", () => {
+        const dni = "Z2345678Z";
+        const expectedResult = true;
+
+        let nieValidationResult = isNie(dni);
+
+        expect(nieValidationResult).toBe(expectedResult);
+    })
+})
+
