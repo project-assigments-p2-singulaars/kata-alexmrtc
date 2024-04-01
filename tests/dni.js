@@ -135,6 +135,21 @@ function checkIndicatedLetter(dni) {
   return dniLetter === expectedLetter ? true : false;
 }
 
+function isNie(dni) {
+  const firstDniCharacter = dni.charAt(0);
+
+  let result = false;
+
+  if (
+    firstDniCharacter === "X" ||
+    firstDniCharacter === "Y" ||
+    firstDniCharacter === "Z"
+  )
+    result = true;
+
+  return result;
+}
+
 function isValidDni(dni) {
   let lengthValidation = checkDniLength(dni);
 
@@ -168,5 +183,6 @@ module.exports = {
   validDniComposition,
   validDniLetter,
   checkIndicatedLetter,
+  isNie,
   isValidDni,
 };
