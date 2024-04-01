@@ -1,4 +1,5 @@
 import { test, expect, describe } from "vitest";
+import { checkDniLength } from "./dni";
 
 describe("checkDniLength(dni)", () => {
     test("checkDniLength() to be defined", () => {
