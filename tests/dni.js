@@ -132,13 +132,41 @@ function checkIndicatedLetter(dni) {
       break;
   }
 
-  
-  return dniLetter === expectedLetter ? true : false
+  return dniLetter === expectedLetter ? true : false;
+}
+
+function isValidDni(dni) {
+  let lengthValidation = checkDniLength(dni);
+
+  if (lengthValidation !== "Valid dni length") {
+    return false;
+  }
+
+  let isValidComposition = validDniComposition(dni);
+
+  if (isValidComposition !== true) {
+    return false;
+  }
+
+  let notContainsLetterException = validDniLetter(dni);
+
+  if (notContainsLetterException === false) {
+    return false;
+  }
+
+  let addecuateLetter = checkIndicatedLetter(dni);
+
+  if (addecuateLetter !== true) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
   checkDniLength,
   validDniComposition,
   validDniLetter,
-  checkIndicatedLetter
+  checkIndicatedLetter,
+  isValidDni,
 };
