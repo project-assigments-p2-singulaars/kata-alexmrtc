@@ -200,36 +200,6 @@ describe("checkIndicatedLetter(dni)", () => {
     })
 })
 
-describe("isValidDni(dni)", () => {
-    test("isValidDni() to be defined", () => {
-        expect(isValidDni).toBeDefined();
-    }),
-    test("isValidDni(876543212Z) should return false, error length", () => {
-        const dni = "876543212Z";
-        const expectedResult = false;
-
-        let dniValidationResult = isValidDni(dni);
-
-        expect(dniValidationResult).toBe(expectedResult);
-    }),
-    test("isValidDni(87654321Z) should return false, error different letter", () => {
-        const dni = "87654321Z";
-        const expectedResult = false;
-
-        let dniValidationResult = isValidDni(dni);
-
-        expect(dniValidationResult).toBe(expectedResult);
-    }),
-    test("isValidDni(87654321X) should return is valid dni", () => {
-        const dni = "87654321X";
-        const expectedResult = true;
-
-        let dniValidationResult = isValidDni(dni);
-
-        expect(dniValidationResult).toBe(expectedResult);
-    })
-})
-
 describe("isNie(dni)", () => {
     test("isNie() to be defined", () => {
         expect(isNie).toBeDefined();
@@ -298,3 +268,48 @@ describe("replaceToNie()", () => {
     })
 })
 
+describe("isValidDni(dni)", () => {
+    test("isValidDni() to be defined", () => {
+        expect(isValidDni).toBeDefined();
+    }),
+    test("isValidDni(876543212Z) should return false, error length", () => {
+        const dni = "876543212Z";
+        const expectedResult = false;
+
+        let dniValidationResult = isValidDni(dni);
+
+        expect(dniValidationResult).toBe(expectedResult);
+    }),
+    test("isValidDni(87654321U) should return false, error exception letter", () => {
+        const dni = "87654321U";
+        const expectedResult = false;
+
+        let dniValidationResult = isValidDni(dni);
+
+        expect(dniValidationResult).toBe(expectedResult);
+    }),
+    test("isValidDni(87654321Z) should return false, error different letter", () => {
+        const dni = "87654321Z";
+        const expectedResult = false;
+
+        let dniValidationResult = isValidDni(dni);
+
+        expect(dniValidationResult).toBe(expectedResult);
+    }),
+    test("isValidDni(87654321X) should return is valid dni", () => {
+        const dni = "87654321X";
+        const expectedResult = true;
+
+        let dniValidationResult = isValidDni(dni);
+
+        expect(dniValidationResult).toBe(expectedResult);
+    }), 
+    test("isValidDni(X1234567L)", () => {
+        const dni = "X1234567L";
+        const expectedResult = true;
+
+        let dniValidationResult = isValidDni(dni);
+
+        expect(dniValidationResult).toBe(expectedResult);
+    })
+})
