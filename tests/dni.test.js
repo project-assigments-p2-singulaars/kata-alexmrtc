@@ -1,5 +1,5 @@
 import { test, expect, describe } from "vitest";
-import { checkDniLength, validDniComposition } from "./dni";
+import { checkDniLength, validDniComposition, validDniLetter } from "./dni";
 
 describe("checkDniLength(dni)", () => {
     test("checkDniLength() to be defined", () => {

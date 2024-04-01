@@ -11,7 +11,7 @@ function checkDniLength(dni) {
 }
 
 function validDniComposition(dni) {
-  let lastCharacter = dni.charAt(8);
+  let lastCharacter = dni.charAt(dni.length - 1);
   if (!isNaN(parseInt(lastCharacter))) {
     return false;
   }
@@ -27,9 +27,33 @@ function validDniComposition(dni) {
   return true;
 }
 
-validDniComposition("12345678T");
+function validDniLetter(dni) {
+  let lastDniCharacter = dni.charAt(dni.length - 1);
+
+  let validLetter = true;
+
+  switch (lastDniCharacter) {
+    case "U":
+      validLetter = false;
+      break;
+    case "I":
+      validLetter = false;
+      break;
+    case "O":
+      validLetter = false;
+      break;
+    case "Ñ":
+      validLetter = false;
+      break;
+    default:
+      break;
+  }
+
+  return validLetter;
+}
 
 module.exports = {
   checkDniLength,
   validDniComposition,
+  validDniLetter,
 };
